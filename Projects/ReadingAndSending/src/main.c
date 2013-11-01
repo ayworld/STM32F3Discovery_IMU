@@ -31,7 +31,7 @@
 #include "usb_lib.h"
 #include "usb_desc.h"
 #include "usb_pwr.h"
-
+#include <stdio.h>
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -47,6 +47,11 @@
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
+
+float AccData[3];
+float GyroData[3];
+char data[9];
+
 int main(void)
 {
   Set_System();
@@ -54,8 +59,23 @@ int main(void)
   USB_Interrupts_Config();
   USB_Init();
   
+	
   while (1)
   {
+		 //Acc_ReadData(AccData);
+   //GyroReadAngRate(GyroData);
+   sprintf(data,"%F",AccData[0]);
+   sprintf(data+3,"%F",AccData[1]);
+   sprintf(data+6,"%F",AccData[2]);
+    UserToPMABufferCopy((uint8_t*)data,ENDP1_TXADDR,9);
+      SetEPTxCount(ENDP1, 9);
+      SetEPTxValid(ENDP1); 
+   sprintf(data,"%F",GyroData[0]);
+   sprintf(data+3,"%F",GyroData[1]);
+   sprintf(data+6,"%F",GyroData[2]);
+    UserToPMABufferCopy((uint8_t*)data,ENDP1_TXADDR,9);
+      SetEPTxCount(ENDP1, 9);
+      SetEPTxValid(ENDP1);
   }
 }
 #ifdef USE_FULL_ASSERT

@@ -776,18 +776,19 @@ ARM Macro Assembler    Page 12
   397 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\STM
-32303C_EVAL\startup_stm32f30x.d -o.\STM32303C_EVAL\startup_stm32f30x.o -IC:\Kei
+Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\stm
+32303c_eval\startup_stm32f30x.d -o.\stm32303c_eval\startup_stm32f30x.o -IC:\Kei
 
 
 
 ARM Macro Assembler    Page 13 
 
 
-l\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\ST\STM32L1xx --pre
-define="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --list=.\STM32303C_EVAL\
-startup_stm32f30x.lst ..\..\..\Libraries\CMSIS\Device\ST\STM32F30x\Source\Templ
-ates\arm\startup_stm32f30x.s
+l\ARM\RV31\INC -IC:\Keil\ARM\PACK\ARM\CMSIS\3.20.3\CMSIS\Include -IC:\Keil\ARM\
+PACK\Keil\STM32F3xx_DFP\1.0.0\Device\Include -IC:\Keil\ARM\Inc\ST\STM32L1xx --p
+redefine="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --list=.\stm32303c_eva
+l\startup_stm32f30x.lst ..\..\..\Libraries\CMSIS\Device\ST\STM32F30x\Source\Tem
+plates\arm\startup_stm32f30x.s
 
 
 
